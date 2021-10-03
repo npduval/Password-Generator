@@ -7,7 +7,7 @@ const uppercaseChar = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","
 
 let superArray =[]
 let finalPassword = []
-
+let chosenPassword =[]
 
 
 
@@ -18,7 +18,7 @@ function writePassword() {
   if (specialPrompt === true){
     const randomIndex1 = Math.floor(Math.random () * specialChar.length);
     randomSpec= specialChar[randomIndex1];
-    finalPassword.push(randomSpec);
+    chosenPassword.push(randomSpec);
     superArray = specialChar.concat();
 
   }
@@ -27,7 +27,7 @@ function writePassword() {
   if (numericalPrompt === true){
     const randomIndex2 = Math.floor(Math.random () * numericalChar.length);
     randomNum = numericalChar[randomIndex2];
-    finalPassword.push(randomNum);
+    chosenPassword.push(randomNum);
     superArray = numericalChar.concat(superArray);
 
   }
@@ -36,40 +36,29 @@ function writePassword() {
   if (lowercasePrompt === true){
     const randomIndex3 = Math.floor(Math.random () * lowercaseChar.length);
     randomLow = lowercaseChar[randomIndex3];
-    finalPassword.push(randomLow);
+    chosenPassword.push(randomLow);
     superArray = lowercaseChar.concat(superArray);
   }
 
-    const uppercasePrompt = confirm("Click OK to include uppercase characters")
+  const uppercasePrompt = confirm("Click OK to include uppercase characters")
 
   if (uppercasePrompt === true){
     const randomIndex4 = Math.floor(Math.random () * uppercaseChar.length);
     randomUp = uppercaseChar[randomIndex4];
-    finalPassword.push(randomUp);
+    chosenPassword.push(randomUp);
     superArray = uppercaseChar.concat(superArray);
   }
-    
-    const password = generatePassword();{
-    const passwordText = document.querySelector("#password");
-    passwordText.value = password + finalPassword;                                                     
-  }
-
-for (let i= 0; i < numberPrompt - finalPassword[Index]; i++){
-  let randomIndex5 = Math.floor(Math.random () * superArray.length);
-  remainderChar = superArray[randomIndex5];
-  finalPassword.push(remainderChar);
-  }
-}
-                                   
-// call generatepassword to update the test on screen
-
-  const password = generatePassword();{
-  const passwordText = document.querySelector("#password");
-  passwordText.value = finalPassword; 
   
+  finalPassword = chosenPassword.concat()
+
+  for (let i= 0; i < Number(numberPrompt) - chosenPassword.length; i++){
+    let randomIndex5 = Math.floor(Math.random () * superArray.length);
+    remainderChar = superArray[randomIndex5];
+    finalPassword.push(remainderChar);
   }
 
-
+  document.getElementById("password").innerHTML = finalPassword.join('');
+}
 
 
 // Add event listener to generate button
