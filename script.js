@@ -10,7 +10,7 @@ let finalPassword = []
 
 
 
-// Write password to the #password input
+
 function writePassword() {
   const numberPrompt = prompt("How many characters would you like included in your password?")
   const specialPrompt = confirm("Click OK to include special characters")
@@ -53,12 +53,21 @@ function writePassword() {
     const passwordText = document.querySelector("#password");
     passwordText.value = password + finalPassword;                                                     
   }
+
+for (let i= 0; i < numberPrompt - finalPassword[Index]; i++){
+  let randomIndex5 = Math.floor(Math.random () * superArray.length);
+  remainderChar = superArray[randomIndex5];
+  finalPassword.push(remainderChar);
+  }
 }
                                    
 // call generatepassword to update the test on screen
 
-//Add function for generatePassword ( for loop based on user input using math.random from super array minus nuymber of characters already in final password)
-
+  const password = generatePassword();{
+  const passwordText = document.querySelector("#password");
+  passwordText.value = finalPassword; 
+  
+  }
 
 
 
